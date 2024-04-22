@@ -1,41 +1,15 @@
-# Chrome-Extension-Base-Template
-This is a basic Chrome Extension base template for starting new projects off of initialized with a MIT license.
+# chrome.bookmarks
 
-## Features
-- ..
-- ..
-- ..
+This sample demonstrates using the `chrome.bookmarks` API to search through, add, and delete bookmarks from the user's bookmark tree.
 
-## Author
-First Last
-- [Author Website]()
-- [Author Github]()
-- [Project Repository]()
+## Overview
 
-## Requirements
-### Knowledge
-- HTML
-- CSS
-- Javascript
-- Chrome API
-### Tools
-- Google Chrome Browser
-- IDE or Text Editor of Your Choice
+The full bookmark tree is displayed on the extension popup usin `chrome.bookmarks.getTree`.
+`chrome.bookmarks.create`is used to add 'https://www.google.com/' to the user's bookmarks. The `chrome.bookmarks.remove` and `chrome.bookmarks.search` APIs are used to find and delete any bookmarks that match 'https://www.google.com/'.
 
-## Setup Instructions
-### For Developers
-1. Make a clone of this project, unzipped.
-2. Open Chrome Browser
-3. In a new or blank tab, type in "chrome://extensions/" (without the quotes of course) and click [Enter].
-4. At the top right corner of the page, **enable** "Developer Mode"
-5. Click the button on the page that says "Load Unpacked"
-6. Navigate to your unzipped project folder and select that and hit OK.
-7. You are now ready to start working on the extension! Just make sure you reload after each change you make to see the changes take place.
+## Running this extension
 
-### For End Users
-1. ...
-2. ...
-3. ...
-
-## License
-Please refer to LICENSE file.
+1. Clone this repository.
+2. Load this directory in Chrome as an [unpacked extension](https://developer.chrome.com/docs/extensions/mv3/getstarted/development-basics/#load-unpacked).
+3. Pin the extension to the taskbar and open up the popup by clicking the action button.
+4. Experiment with adding and removing bookmarks using the buttons within the popup.
