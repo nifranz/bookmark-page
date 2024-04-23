@@ -1,10 +1,16 @@
 <script setup>
-import { defineProps, onBeforeUnmount, ref } from 'vue';
+import { defineProps, onBeforeUnmount, onUpdated, ref } from 'vue';
 
 const props = defineProps(['node', 'index']);
 let showAnim = ref(props.index != 0);
-let showBackAnim = ref(false);  
+
 const zIndex = 1000 - props.index;
+
+const opensite = (url) => {
+    window.open(url);
+    window.close();
+};
+
 
 onBeforeUnmount(async () => {
     showBackAnim.value = true;
@@ -18,18 +24,20 @@ onBeforeUnmount(async () => {
 
 </script>
 <template>
-    <div class="node-wrapper" :class="{'anim': showAnim}" :style="{'z-index': zIndex}">
-        <h2 class="mb-3">{{ node.title }}</h2>
-        <ul >
-            <li 
-                v-for="(child, index) in node.children" 
-                key:child 
-                :class="{'active': node.active == index}"
-            >
-                <v-icon :icon="child.children ? 'mdi-folder' : 'mdi-web'" size="small" color="#444444"></v-icon> 
-                {{ index + 1 }} - {{ child.title }}
-            </li>
-        </ul>
+        <div :class="{ 'active-node': !node.del, 'anim': showAnim}" class="node-wrapper"  :style="{'z-index': zIndex}">
+            <h2 class="mb-3">{{ index == 0 ? 'Bookmark Navigator' : node.title }}</h2>
+                <ul >
+                    <li 
+                    
+                    v-for="(child, index) in node.children" 
+                    key:child 
+                    :class="{'active': node.active == index, 'hover': child.url}"
+                    >
+                        <v-icon :icon="child.children ? 'mdi-folder' : 'mdi-web'" size="small" color="#444444"></v-icon> 
+                        <div @click="if (child.url) opensite(child.url);">{{ index + 1 }} - {{ child.title }}</div>
+                    </li>
+                </ul>
+
     </div>
 </template>
 
@@ -44,7 +52,6 @@ ul {
     gap: 10px;
 }
 li {
-    cursor: pointer;
     padding: 5px;
     padding-inline: 10px;
     border-radius: 5px;
@@ -53,8 +60,12 @@ li {
     align-items: center;
     gap: 10px;
 }
-li:hover, .active{
+.active{
     background-color: #f3f3f3;
+}
+.hover:hover div { 
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 @keyframes fadeIn {
@@ -67,10 +78,6 @@ li:hover, .active{
         transform: translateX(0);
     }
 }
-.anim-back {
-    animation: fadeIn 0.2s cubic-bezier(.05, .8, .1, .95);
-    animation-direction: reverse;
-}
 
 .anim {
     animation: fadeIn 0.2s cubic-bezier(.05, .8, .1, .95);
@@ -80,6 +87,7 @@ h2 {
     padding-inline: 10px;;
 }
 .node-wrapper {
+    transition: .1s;
     color: rgb(55, 52, 48);
     display: flex;
     flex-direction: column;
@@ -91,5 +99,18 @@ h2 {
     overflow-y: scroll;
     border-right: 1px solid #e1e1e1;
     background-color: white;
+    opacity: 0;
+    transform: translateX(-100px);
+
+}
+.active-node {
+        opacity: 1;
+        transform: translateX(0);
+}
+.node-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
 }
 </style>

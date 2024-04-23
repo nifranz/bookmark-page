@@ -18,11 +18,49 @@ limitations under the License.
 <html>
   <head>
     <title>Bookmark Viewer</title>
-    <script src="popup.js" type="module"></script>
+    <style>
+.github-link {
+  display:inline-block;
+}
+.credits {
+  margin-top:10px;
+  z-index: 2000;
+  text-align: center;
+  padding: 10px;
+  font-size: 15px;
+  color: #444444;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+.credits a {
+    color:#444444;;
+    text-decoration: none;
+}
+.credits a:hover .heart {
+  color: red;
+
+}
+.bm {
+  color: #444444;
+}
+.bm a {
+  color: #444444;
+}
+    </style>
   </head>
   <body>
-    <button id="addButton">Add Bookmark</button>
-    <button id="removeButton">Remove Added Bookmarks</button>
-    <ul id="bookmarkList"></ul>
+    <div style="display: flex; flex-direction: column; align-items:center; width: 200px;">
+      <h2>Bookmark Navigator</h2>
+    
+      <span class="bm" >
+        <a target="_blank" href="https://icons8.com/icon/19/bookmark">Bookmark</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+      </span>
+      <br>
+      <span class="bm" style="margin-top: 20px;  font-size: 16px;">&#x00A9 2024 <a style=" text-decoration:dotted;" href="https://github.com/nifranz" target="_blank" class="github-link">Niklas Franz</a></span>
+    </div>
   </body>
 </html>

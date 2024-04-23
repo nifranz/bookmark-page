@@ -1,11 +1,6 @@
-# chrome.bookmarks
+# Bookmark Navigator
 
-This sample demonstrates using the `chrome.bookmarks` API to search through, add, and delete bookmarks from the user's bookmark tree.
-
-## Overview
-
-The full bookmark tree is displayed on the extension popup usin `chrome.bookmarks.getTree`.
-`chrome.bookmarks.create`is used to add 'https://www.google.com/' to the user's bookmarks. The `chrome.bookmarks.remove` and `chrome.bookmarks.search` APIs are used to find and delete any bookmarks that match 'https://www.google.com/'.
+A simple Chrome New Tab Page that lets you navigate and open your bookmarks with your number keys!
 
 ## Running this extension
 
