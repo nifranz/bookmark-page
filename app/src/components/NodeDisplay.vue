@@ -76,11 +76,11 @@ li:hover, .active{
     animation: fadeIn 0.2s cubic-bezier(.05, .8, .1, .95);
 }
 h2 {
-    color: rgb(35, 35, 35);
+    color: rgb(55, 52, 48);
     padding-inline: 10px;;
 }
 .node-wrapper {
-    color: rgb(42, 42, 42);
+    color: rgb(55, 52, 48);
     display: flex;
     flex-direction: column;
     height: 100%;
