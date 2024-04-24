@@ -2,6 +2,8 @@
 
 A simple Chrome New Tab Page that lets you navigate and open your bookmarks with your number keys!
 
+![Bookmark Navigator](app.png)
+
 ## Running this extension
 
 1. Clone this repository.
